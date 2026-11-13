@@ -1,0 +1,45 @@
+task: e2e
+run_dir: runs/e2e
+
+data:
+  data_dir: data/e2e/processed
+  train_file: train.jsonl
+  val_file: dev.jsonl
+  test_file: test.jsonl
+  max_source_length: 256
+  max_target_length: 64
+
+linearization:
+  strategy: plain   # overridden by CLI --strategy
+  canonical_missing: none  # one of: none | skip
+
+model:
+  model_name: t5-base
+  use_lora: true
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+
+train:
+  seed: 42
+  lr: 2.0e-4
+  weight_decay: 0.0
+  epochs: 5
+  train_batch_size: 2
+  eval_batch_size: 2
+  grad_accum: 16
+  num_workers: 2
+  precision: 16-mixed
+  log_every_n_steps: 20
+  val_check_interval: 1.0
+  save_last: true
+
+decode:
+  num_beams: 4
+  length_penalty: 1.0
+  no_repeat_ngram_size: 3
+  max_new_tokens: 64
+
+metrics:
+  enable_bertscore: true
+

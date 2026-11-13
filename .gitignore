@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.venv/
+venv/
+*.so
+
+# PyTorch / PyTorch Lightning
+*.ckpt
+*.pt
+*.pth
+runs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution
+dist/
+build/
+
+# Environment
+.env
+*.log
+
+# Paper draft (keep private)
+paper.tex
+paper_text.txt
+d2d_paper.pdf
+acl.sty
+acl_natbib.bst
+*.bib
